@@ -77,7 +77,7 @@ export "PYTHON_VERSION=$(/app/.heroku/python/bin/python --version)"
 echo "-----> Bootstrap buildout using Python provided by heroku-buildpack-python:"
 echo "$PYTHON_VERSION" | indent
 curl -OL "${BOOTSTRAP_PY_URL}"
-/app/.heroku/python/bin/python bootstrap.py -v 2.4.1 --setuptools-version=18.2 -c $BUILDOUT_CFG
+/app/.heroku/python/bin/python bootstrap.py --setuptools-version=18.2 -c $BUILDOUT_CFG
 
 echo "-----> Run bin/buildout -c ${BUILDOUT_CFG} ${BUILDOUT_VERBOSITY}"
 bin/buildout -c $BUILDOUT_CFG $BUILDOUT_VERBOSITY
